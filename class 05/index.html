@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <style>
+    .position {
+      width: 700px;
+      height: 500px;
+      background-color: aquamarine;
+      margin: auto;
+      position: relative;
+    }
+
+    .box {
+      background-color: green;
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      /* top: 130px; */
+      /* right: 0; */
+      /* left: 40px; */
+      top: 0;
+      left: 100px;
+      z-index: 100;
+    }
+
+    .box-1 {
+      background-color: blue;
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      top: 20px;
+      left: 150px;
+      z-index: 41;
+    }
+
+    .box-2 {
+      background-color: red;
+      width: 100px;
+      height: 100px;
+      position: fixed;
+      right: -10px;
+      top: 40%;
+      z-index: 99;
+    }
+
+    .hero {
+      height: 100vh;
+      background-color: bisque;
+    }
+  </style>
+  <body>
+    <section class="position">
+      <div class="box">Box</div>
+      <div class="box-1">Box 01</div>
+      <div class="box-2">Box 02</div>
+    </section>
+
+    <section class="hero"></section>
+  </body>
+</html>

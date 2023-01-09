@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Forms</title>
+  </head>
+  <body>
+    <h2>We are learning HTML Forms</h2>
+    <form action="">
+      <fieldset style="background-color: rgb(238, 255, 222)">
+        <legend>Registration Form</legend>
+        <!-- name field  -->
+        <label style="color: darkblue" for="name">First Name</label
+        ><span style="color: red">*</span>
+        <br />
+        <input
+          type="text"
+          placeholder="Enter your name"
+          id="name"
+          required
+        /><br /><br />
+
+        <!-- email  -->
+        <label style="color: darkblue" for="mail">Email</label
+        ><span style="color: red">*</span><br />
+        <input
+          type="email"
+          placeholder="ex. hello@gmail.com"
+          id="mail"
+          required
+        />
+        <br /><br />
+
+        <!-- phone number  -->
+        <label style="color: darkblue" for="phone">Phone number</label
+        ><span style="color: red">*</span><br />
+        <input type="number" placeholder="+880-XXX-XXX" id="phone" required />
+        <br /><br />
+
+        <!-- password -->
+        <label style="color: darkblue" for="pass">Password</label
+        ><span style="color: red">*</span><br />
+        <input type="password" id="pass" required />
+        <br /><br />
+
+        <!-- dropdown -->
+        <label for="country">Select Country</label>
+        <select id="country">
+          <option value="">---Select---</option>
+          <option value="Bangladesh">Bangladesh</option>
+          <option value="India">India</option>
+          <option value="Pakistan">Pakistan</option>
+          <option value="Nepal">Nepal</option>
+          <option value="Bhutan">Bhutan</option>
+        </select>
+        <br /><br />
+
+        <!-- date of birth  -->
+        <label style="color: darkblue" for="pass">Date of Birth</label
+        ><span style="color: red">*</span><br />
+        <input type="date" id="pass" required />
+        <br /><br />
+
+        <!-- upload file  -->
+        <label for="file">Upload Documents</label><br />
+        <input type="file" />
+        <br /><br />
+
+        <!-- Radio   -->
+        <label for="file">Choose Gender</label><br />
+        <input type="radio" id="male" name="gender" />
+        <label for="male">Male</label>
+
+        <input type="radio" id="female" name="gender" />
+        <label for="female">Female</label>
+
+        <input type="radio" id="others" name="gender" />
+        <label for="others">Others</label>
+        <br /><br />
+
+        <!-- checkbox  -->
+        <input type="checkbox" required id="check" />
+        <label for="check"
+          >Agree to
+          <a
+            href="https://www.w3schools.com/html/html_forms.asp"
+            target="_blank"
+            >term & conditions</a
+          ></label
+        >
+
+        <!-- submit btn  -->
+        <br /><br />
+        <input
+          style="color: white; background-color: green"
+          type="submit"
+          value="Contact Me"
+        />
+        <input
+          type="reset"
+          value="Reset"
+          style="color: white; background-color: red"
+        />
+      </fieldset>
+    </form>
+  </body>
+</html>

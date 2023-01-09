@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    /* unvisited link  */
+    a:link {
+      color: red;
+    }
+    /* visited link  */
+    a:visited {
+      color: green;
+    }
+    /* hover (interaction when mouse pointer comes in) */
+    /* h2:hover,
+    p:hover,
+    a:hover {
+      background-color: rgb(43, 43, 43);
+      color: white;
+    } */
+
+    p::first-letter {
+      font-size: 30px;
+      color: green;
+    }
+
+    p::first-line {
+      text-decoration: underline;
+      font-size: 20px;
+    }
+
+    ::selection {
+      background-color: greenyellow;
+      color: white;
+    }
+
+    .border {
+      position: relative;
+    }
+
+    .border::before {
+      content: "";
+      width: 40%;
+      height: 4px;
+      background-color: blue;
+      position: absolute;
+      bottom: 10px;
+      left: 40px;
+      z-index: -1;
+    }
+    .border::after {
+      content: "";
+      width: 40%;
+      height: 4px;
+      background-color: red;
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      z-index: -1;
+    }
+
+    h2 {
+      position: relative;
+    }
+
+    h2::after {
+      content: "";
+      width: 50px;
+      height: 50px;
+      /* background-image: url("https://images.unsplash.com/photo-1671725501884-e832fb8d0d84?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60");
+      background-repeat: no-repeat;
+      background-size: cover; */
+      position: absolute;
+      top: -20px;
+      left: -20px;
+      z-index: -1;
+    }
+
+    section {
+      /* max-width: 700px; */
+      margin: 10% auto;
+      /* background-image: url("me.png"); */
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  </style>
+  <body>
+    <section>
+      <h2>
+        Lorem <span class="border">ipsum</span> dolor sit amet consectetur,
+        adipisicing elit. Id, eos.
+      </h2>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita a,
+        dolorem doloribus eos explicabo, culpa fugiat quisquam quam hic, minima
+        reprehenderit non obcaecati mollitia velit magni voluptas nobis
+        reiciendis exercitationem vitae perferendis alias enim quae maxime. Iste
+        odit quasi accusantium.
+      </p>
+      <a href="https://google.com" target="_blank">Learn More</a>
+      <a href="https://youtube.com" target="_blank">Learn More</a>
+      <a href="https://netflix.com" target="_blank">Learn More</a>
+      <a href="https://netfli.com" target="_blank">Learn More</a>
+    </section>
+  </body>
+</html>
