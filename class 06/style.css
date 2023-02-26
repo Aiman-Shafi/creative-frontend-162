@@ -80,6 +80,22 @@ nav ul {
   background-color: #588157;
   padding: 10px 25px;
   display: inline-block;
+  position: relative;
+}
+
+.btn-primary::after {
+  content: "";
+  width: 0;
+  height: 10px;
+  background: red;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.btn-primary:hover::after {
+  width: 100%;
 }
 
 /* hero  */
@@ -87,6 +103,9 @@ nav ul {
 .hero-section {
   background-color: var(--bg-color);
   padding: 80px 0;
+  background-image: url("https://images.unsplash.com/photo-1673362999134-645dab20cb20?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80");
+  background-position: center;
+  background-size: cover;
 }
 
 .hero-container {

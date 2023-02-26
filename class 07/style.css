@@ -1,0 +1,39 @@
+:root {
+  --animate-duration: 2s;
+  /* --animate-delay: 4s; */
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+/* .animated__duration {
+  --animate-duration: 1.6s;
+}
+
+.animated__duration_2 {
+  --animate-duration: 3s;
+} */
+
+img {
+  max-width: 100%;
+}
+
+h1 {
+  text-align: center;
+}
+
+.wrapper {
+  max-width: 90%;
+  margin: auto;
+}
+
+.hero-wrapper {
+  display: flex;
+  align-items: center;
+  padding: 60px 0;
+}
+
+.hero-wrapper > * {
+  flex-basis: 100%;
+}

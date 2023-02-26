@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    img {
+      max-width: 100%;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .wrapper {
+      max-width: 90%;
+      margin: auto;
+      transition: all 1s ease-in;
+    }
+
+    .hero-wrapper {
+      display: flex;
+      align-items: center;
+      padding: 60px 0;
+    }
+
+    .hero-wrapper > * {
+      flex-basis: 100%;
+    }
+
+    section {
+      background: rgb(255, 219, 219);
+      /* animation: bg-animation 2s; */
+      animation-name: bg-animation;
+      animation-duration: 4s;
+      animation-timing-function: ease;
+      animation-iteration-count: 2;
+      animation-direction: alternate-reverse;
+    }
+
+    @keyframes bg-animation {
+      0% {
+        background: red;
+      }
+      40% {
+        background: green;
+      }
+      70% {
+        background: pink;
+      }
+      100% {
+        background: blue;
+      }
+    }
+
+    h2 {
+      /* transform: translate(40px, -100px); */
+      transition: transform 0.5s ease-out;
+    }
+
+    h2:hover {
+      transform: translateX(10px);
+      cursor: pointer;
+    }
+
+    img {
+      /* transform: rotateY(180deg); */
+      /* transform: skewY(-20deg); */
+    }
+
+    .btn {
+      background: blue;
+      padding: 10px 20px;
+      display: inline-block;
+      color: white;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: all 0.4s ease-in;
+      animation: btn-move 1s ease-in-out infinite alternate-reverse;
+    }
+
+    .btn:hover {
+      background-color: green;
+      transform: scale(1.2);
+      box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+        rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    }
+
+    @keyframes btn-move {
+      from {
+        transform: rotateY(0);
+      }
+      to {
+        transform: rotateY(-180deg);
+      }
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 40px;
+    }
+
+    nav ul li a {
+      color: brown;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .nav-link {
+      position: relative;
+      color: rgb(55, 55, 55);
+    }
+
+    .nav-link::after {
+      content: "";
+      width: 0%;
+      height: 2px;
+      position: absolute;
+      top: 0px;
+      left: 0;
+      background: rgb(216, 115, 27);
+      z-index: -1;
+      transition: all 0.5s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+  </style>
+  <body>
+    <h1>CSS Transforms</h1>
+
+    <nav>
+      <ul>
+        <li><a href="#" class="nav-link">Home</a></li>
+        <li><a href="#" class="nav-link">About</a></li>
+        <li><a href="#" class="nav-link">Contact</a></li>
+        <li><a href="#" class="nav-link">Service</a></li>
+      </ul>
+    </nav>
+    <section class="hero">
+      <div class="wrapper hero-wrapper">
+        <div
+          class="hero-content wow animate__animated animate__slideInLeft animated__duration"
+        >
+          <h2>Lorem ipsum dolor sit amet.</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio
+            animi, aperiam similique veniam voluptas reprehenderit quis
+            cupiditate! Ipsum, eum. Quidem possimus vero necessitatibus commodi
+            at earum asperiores quod incidunt facilis?
+          </p>
+          <a class="btn" href="#">Learn More</a>
+        </div>
+        <div
+          class="hero-img wow animate__animated animate__slideInRight animated__duration_2"
+        >
+          <img src="hero-img.svg" alt="" />
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

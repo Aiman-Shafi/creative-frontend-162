@@ -1,0 +1,4 @@
+.hello::before {
+  content: "hellooo";
+  color: white;
+}

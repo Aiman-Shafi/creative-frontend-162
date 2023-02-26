@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Montserrat", sans-serif;
+        background-color: #f2f2f2;
+        margin: 0;
+      }
+
+      .calculator {
+        max-width: 350px;
+        margin: 0 auto;
+        background-color: #fff;
+        border-radius: 15px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+      }
+
+      h1 {
+        text-align: center;
+        font-weight: bold;
+        color: #4d4d4d;
+        margin: 0 0 20px;
+      }
+
+      .display {
+        background-color: #f2f2f2;
+        border-radius: 10px;
+        padding: 15px;
+        margin-bottom: 20px;
+        text-align: right;
+      }
+
+      .display input[type="text"] {
+        width: 100%;
+        border: none;
+        font-size: 36px;
+        background-color: transparent;
+        text-align: right;
+      }
+
+      .buttons {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+      }
+
+      button {
+        background-color: #4d4d4d;
+        color: #fff;
+        font-size: 24px;
+        border: none;
+        border-radius: 5px;
+        padding: 15px 20px;
+        cursor: pointer;
+        transition: background-color 0.2s ease-in-out;
+      }
+
+      button:hover {
+        background-color: #333;
+      }
+
+      button:active {
+        transform: scale(0.95);
+      }
+
+      .operator {
+        background-color: #ff9500;
+      }
+
+      #clear {
+        background-color: #d9534f;
+      }
+
+      #equals {
+        background-color: #007aff;
+        grid-column: span 2;
+      }
+
+      #zero {
+        grid-column: span 2;
+      }
+    </style>
+    <div class="calculator">
+      <h1>Calculator</h1>
+      <div class="display">
+        <input type="text" id="result" disabled />
+      </div>
+      <div class="buttons">
+        <button class="operator" id="add">+</button>
+        <button class="operator" id="subtract">-</button>
+        <button class="operator" id="multiply">&times;</button>
+        <button class="operator" id="divide">&divide;</button>
+        <button id="seven">7</button>
+        <button id="eight">8</button>
+        <button id="nine">9</button>
+        <button id="four">4</button>
+        <button id="five">5</button>
+        <button id="six">6</button>
+        <button id="one">1</button>
+        <button id="two">2</button>
+        <button id="three">3</button>
+        <button id="zero">0</button>
+        <button id="decimal">.</button>
+        <button id="clear">C</button>
+        <button id="equals">=</button>
+      </div>
+    </div>
+    <script>
+      const result = document.getElementById("result");
+      const buttons = document.querySelectorAll("button");
+
+      let currentNumber = "";
+      let firstNumber = null;
+      let operator = null;
+
+      function reset() {
+        currentNumber = "";
+        firstNumber = null;
+        operator = null;
+        result.value = "";
+      }
+
+      function handleNumberClick(number) {
+        currentNumber += number;
+        result.value = currentNumber;
+      }
+
+      function handleOperatorClick(selectedOperator) {
+        if (firstNumber === null) {
+          firstNumber = parseFloat(currentNumber);
+          operator = selectedOperator;
+          currentNumber = "";
+        } else {
+          const secondNumber = parseFloat(currentNumber);
+          const total = performOperation(firstNumber, secondNumber, operator);
+          result.value = total;
+          firstNumber = total;
+          operator = selectedOperator;
+          currentNumber = "";
+        }
+      }
+
+      function performOperation(num1, num2, operator) {
+        switch (operator) {
+          case "+":
+            return num1 + num2;
+          case "-":
+            return num1 - num2;
+          case "*":
+            return num1 * num2;
+          case "/":
+            return num1 / num2;
+          default:
+            return null;
+        }
+      }
+
+      function handleEqualClick() {
+        const secondNumber = parseFloat(currentNumber);
+        const total = performOperation(firstNumber, secondNumber, operator);
+        result.value = total;
+        currentNumber = "";
+        firstNumber = null;
+        operator = null;
+      }
+
+      function handleDecimalClick() {
+        if (!currentNumber.includes(".")) {
+          currentNumber += ".";
+          result.value = currentNumber;
+        }
+      }
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const buttonValue = button.innerText;
+          switch (buttonValue) {
+            case "C":
+              reset();
+              break;
+            case "+":
+            case "-":
+            case "*":
+            case "/":
+              handleOperatorClick(buttonValue);
+              break;
+            case "=":
+              handleEqualClick();
+              break;
+            case ".":
+              handleDecimalClick();
+              break;
+            default:
+              handleNumberClick(buttonValue);
+              break;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

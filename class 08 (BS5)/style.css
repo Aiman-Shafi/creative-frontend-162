@@ -1,0 +1,21 @@
+.section-bg {
+  height: 70vh;
+  background-color: pink;
+}
+
+html {
+  --primary-color: green;
+}
+
+.text-green {
+  color: var(--primary-color);
+}
+
+.bg-custom-gradient{
+    
+}
+
+/* .display-1 {
+  font-size: 60px;
+  color: greenyellow !important;
+} */
