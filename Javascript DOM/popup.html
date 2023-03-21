@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      .modal-body {
+        max-width: 600px;
+        margin: auto;
+        border: 2px solid black;
+        text-align: center;
+        background-color: rgb(137, 137, 196);
+        color: white;
+        height: 200px;
+        display: grid;
+        place-content: center;
+      }
+
+      #btn,
+      #color {
+        padding: 10px 20px;
+        color: white;
+        text-transform: uppercase;
+        background-color: black;
+        outline: none;
+        border: none;
+        cursor: pointer;
+      }
+
+      .coupon {
+        display: none;
+      }
+    </style>
+    <div class="modal-body">
+      <div class="offer">
+        <h2>We have new offer today! Check it out!</h2>
+        <button id="btn">See Offer!</button>
+        <button id="color">Change Color</button>
+      </div>
+
+      <div class="coupon">
+        <h2>Use coupon "happy50" for 10% discount</h2>
+      </div>
+    </div>
+
+    <script>
+      const colorBtn = document.getElementById("color");
+      const modal = document.querySelector(".modal-body");
+      const btn = document.getElementById("btn");
+      const coupon = document.querySelector(".coupon");
+      const offer = document.querySelector(".offer");
+
+      colorBtn.addEventListener("click", function () {
+        modal.style.backgroundColor = "red";
+        coupon.style.display = "block";
+        offer.style.display = "none";
+      });
+
+      colorBtn.innerText = "Change to new color!";
+
+      // event
+      btn.addEventListener("click", function () {
+        console.log("New offer is here");
+        // btn.innerText = "Hello There";
+        // btn.style.backgroundColor = "Red";
+        coupon.style.display = "block";
+        offer.style.display = "none";
+      });
+
+      modal.addEventListener("click", function () {
+        console.log("we are on modal body!");
+        console.log(modal);
+      });
+    </script>
+
+    <script>
+      //   function
+      let numOne = 40;
+      let numTwo = 50;
+
+      //   parameter
+      function add(numOne, numTwo) {
+        let sum = numOne + numTwo;
+        console.log(sum);
+      }
+
+      add();
+
+      function calculate(num1 = 10, num2 = 40) {
+        console.log("substract:", num1 - num2);
+        console.log("add:", num1 + num2);
+      }
+
+      calculate(30, 50);
+      calculate();
+      calculate(40, 50);
+
+      // for loop
+      for (let count = 1; count <= 10; count++) {
+        console.log(count);
+      }
+
+      function printLoop(initialValue, finaValue) {
+        for (let count = initialValue; count <= finaValue; count++) {
+          console.log(count);
+        }
+      }
+
+      printLoop(100, 200);
+      printLoop(54, 60);
+      printLoop(12, 30);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+    body {
+      background-color: rgb(86, 86, 86);
+      height: 100vh;
+      overflow-x: hidden;
+    }
+
+    * {
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
+
+    header {
+      background-color: rgb(35, 35, 35);
+      color: white;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: auto;
+      padding: 1rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .container i {
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    nav {
+      position: absolute;
+      width: 0%;
+      height: 100%;
+      top: 0;
+      left: -100%;
+      /* right: -100%; */
+      background-color: black;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    nav a {
+      font-size: 4rem;
+    }
+
+    .nav__open {
+      /* right: 0; */
+      left: 0%;
+      width: 100%;
+      transition: all 0.5s ease;
+    }
+
+    .nav__close {
+      /* right: -100%; */
+      width: 0;
+      transition: all 0.5s ease;
+    }
+  </style>
+  <body>
+    <header>
+      <div class="container">
+        <div class="logo">LOGO</div>
+        <nav>
+          <div class="nav__close"><i class="bx bx-x"></i></div>
+          <a href="#">Home</a>
+          <a href="#">About</a>
+          <a href="#">Service</a>
+          <a href="#">Blog</a>
+          <a href="#">Contact</a>
+        </nav>
+        <div class="hamburger_menu">
+          <i class="bx bx-menu-alt-right"></i>
+        </div>
+      </div>
+    </header>
+
+    <script>
+      const menu = document.querySelector(".hamburger_menu");
+      const closeMenu = document.querySelector(".nav__close");
+      const nav = document.querySelector("nav");
+
+      menu.addEventListener("mouseover", function () {
+        nav.classList.add("nav__open");
+        nav.classList.remove("nav__close");
+      });
+
+      closeMenu.addEventListener("click", function () {
+        nav.classList.add("nav__close");
+        nav.classList.remove("nav__open");
+      });
+    </script>
+  </body>
+</html>

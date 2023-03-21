@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript DOM</title>
+  </head>
+  <body>
+    <!-- // 2 inputs
+    // 4 button -> add, substract, division, multiply -->
+    <h2 id="heading">Basic Calculator</h2>
+    <section>
+      <div class="input">
+        <input type="number" id="inputOne" placeholder="Enter Value" />
+        <input type="number" id="inputTwo" placeholder="Enter Value" />
+      </div>
+      <br />
+      <div class="buttons">
+        <button id="add" onclick="sum()">ADD +</button>
+        <button id="substract" onclick="substract()">SUBSTRACT -</button>
+        <button id="division" onclick="division()">DIVISION /</button>
+        <button id="multiply" onclick="multiply()">MULTIPLY x</button>
+        <button id="reset" onclick="reset()">Reset</button>
+      </div>
+
+      <div class="result">
+        <h3>Result: <span id="result">0</span></h3>
+      </div>
+    </section>
+
+    <script>
+      // step 1
+      const inputOne = document.getElementById("inputOne");
+      const inputTwo = document.getElementById("inputTwo");
+      const result = document.getElementById("result");
+
+      // console.log(typeof inputOne.value);
+      // do the addition
+      function sum() {
+        if (inputOne.value && inputTwo.value) {
+          let operation = parseInt(inputOne.value) + parseInt(inputTwo.value);
+          // console.log(operation);
+          result.innerText = operation;
+        } else {
+          alert("please fill up all the field!");
+        }
+      }
+
+      function substract() {
+        if (inputOne.value && inputTwo.value) {
+          let operation = parseInt(inputOne.value) - parseInt(inputTwo.value);
+          // console.log(operation);
+          result.innerText = operation;
+        } else {
+          alert("please fill up all the field!");
+        }
+      }
+
+      function multiply() {
+        if (inputOne.value && inputTwo.value) {
+          let operation = parseInt(inputOne.value) * parseInt(inputTwo.value);
+          // console.log(operation);
+          result.innerText = operation;
+        } else {
+          alert("please fill up all the field!");
+        }
+      }
+
+      function division() {
+        if (inputOne.value && inputTwo.value) {
+          let operation = parseInt(inputOne.value) / parseInt(inputTwo.value);
+          console.log(operation);
+          result.innerText = operation.toFixed(2);
+        } else {
+          alert("please fill up all the field!");
+        }
+      }
+
+      function reset() {
+        inputOne.value = "";
+        inputTwo.value = "";
+        result.innerText = "0";
+      }
+
+      // const heading = document.getElementById("heading");
+
+      // heading.innerHTML = "Calculate!";
+
+      // const addBtn = document.getElementById("add");
+
+      // addBtn.addEventListener("click", function () {
+      //   sum();
+      // });
+
+      // add();
+
+      // result.innerHTML = "20";
+      // result.innerText = "70";
+      // const multiply = document.getElementById("multiply");
+
+      // multiply.innerHTML = "Multiplication";
+
+      // inputOne.value = "30";
+
+      // && - all the condition should be true
+      // || - any of the condition can be true
+
+      // let age = 20;
+      // let user = "Saki";
+      // let time = "10 PM";
+
+      // if (age == 20 && user == "Sakib" && time == "10 PM") {
+      //   console.log("you can go in!");
+      // } else {
+      //   console.log("you are not allowed!");
+      // }
+    </script>
+  </body>
+</html>

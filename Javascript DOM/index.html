@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript DOM</title>
+  </head>
+
+  <style>
+    .about {
+      background-color: aqua;
+      border: 6px solid black;
+    }
+  </style>
+  <body>
+    <div id="section">
+      <h1 class="heading">We are learning Javascript DOM</h1>
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem atque
+        tempore, voluptate officia voluptates omnis molestias eligendi enim
+        animi, repellat odio? Et veritatis, debitis aliquid totam soluta optio
+        aut sapiente.
+      </p>
+      <a href="#" id="btn">Let's Explore</a>
+    </div>
+
+    <div class="hero"><p>Lorem ipsum dolor sit.</p></div>
+    <div><h2 class="heading">Lorem, ipsum dolor.</h2></div>
+    <div><h5>Lorem ipsum dolor sit amet.</h5></div>
+
+    <script>
+      // get any element by id
+      let btn = document.getElementById("btn");
+      // get any element by tag name
+      let allDiv = document.getElementsByTagName("div");
+      let allTag = document.getElementsByTagName("h2");
+      // get any element by classname
+      const hero = document.getElementsByClassName("heading");
+
+      console.log(btn);
+
+      // get element by query
+      const heading = document.querySelector("#section");
+      const heroBlock = document.querySelector(".hero p");
+
+      //   heading.style.backgroundColor = "red";
+      //   heading.style.color = "white";
+      //   heading.style.display = "";
+      heading.classList.add("about");
+      heroBlock.style.color = "blue";
+      heroBlock.classList.add("about");
+
+      console.log(heading);
+      console.log(heroBlock);
+
+      //   console.log(hero, btn, allDiv);
+    </script>
+  </body>
+</html>
