@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #00132d;
+  color: white;
+}
+
+main {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.task-input {
+  margin: 50px 0;
+}
+
+.task-input h1 {
+  margin-bottom: 20px;
+}
+
+#new-task-input {
+  padding: 10px;
+  border: 1px solid #00377e;
+  font-size: 18px;
+  width: 100%;
+}
+
+#new-task-submit {
+  padding: 13px;
+  border: none;
+  outline: none;
+  background-color: #0055c3;
+  color: white;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.task-list h2 {
+  margin-bottom: 18px;
+}
+
+#tasks {
+  background-color: #00193b;
+  padding: 20px;
+  border: 1px solid #003170;
+}
+
+.task {
+  margin-bottom: 20px;
+  background-color: #00132d;
+  padding: 10px;
+}
+
+.text {
+  background-color: transparent;
+  border: none;
+  color: white;
+  width: 100%;
+  padding: 10px 0;
+  border-bottom: 1px solid #0055c3;
+  margin-bottom: 10px;
+}
+
+.edit,
+.delete,
+.complete {
+  padding: 10px 20px;
+  text-transform: uppercase;
+  color: white;
+  background-color: #0055c3;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.delete {
+  background-color: rgb(130, 1, 1);
+  margin: 0 10px;
+}
+
+.complete {
+  background-color: #004900;
+}
+
+.mark-completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
