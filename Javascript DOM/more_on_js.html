@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      .container {
+        background-color: gray;
+      }
+
+      .items {
+        background-color: green;
+      }
+    </style>
+    <div class="container">
+      <h2>List of items</h2>
+      <input type="text" placeholder="anything.." id="input" />
+
+      <ul class="items">
+        <!-- <li class="list">Apple</li>
+        <li class="list">Banana</li>
+        <li class="list">Orange</li>
+        <li class="list">Kiwi</li> -->
+      </ul>
+
+      <button id="btn">Add Item</button>
+    </div>
+
+    <script>
+      //   function add() {
+      //     // do something
+      //     console.log
+      //   }
+      //   add();
+
+      //   const addition = () => console.log("hello");
+
+      //   addition();
+
+      // selectors
+      const container = document.querySelector(".container");
+      const items = document.querySelector(".items");
+      const lists = document.querySelectorAll(".list");
+      //   console.log(list);
+      const addBtn = document.getElementById("btn");
+      const input = document.getElementById("input");
+
+      //   container.addEventListener("click", (event) => {
+      //     console.log("container clicked");
+      //     console.log(container);
+      //     // console.log(event.target);
+      //     event.stopPropagation();
+      //   });
+
+      //   items.addEventListener("click", (event) => {
+      //     console.log("item box clicked");
+      //     event.stopPropagation();
+      //   });
+
+      //   list.addEventListener("click", (event) => {
+      //     console.log("list items clicked");
+      //     event.stopPropagation();
+      //   });
+
+      //   for (const item of lists) {
+      //     console.log(item);
+      //     item.addEventListener("click", (event) => {
+      //       item.style.color = "red";
+      //       event.target.remove();
+      //     });
+      //   }
+
+      addBtn.addEventListener("click", (event) => {
+        console.log("button clicked");
+        event.stopPropagation();
+
+        // creating an element with DOM
+        // let createListItem = document.createElement("li");
+        // createListItem.innerHTML = input.value;
+        // items.appendChild(createListItem);
+
+        if (input.value) {
+          items.innerHTML += `
+            <li class="list">${input.value}</li>
+        `;
+        } else {
+          alert("fill the input box!");
+        }
+
+        items.addEventListener("click", (event) => {
+          console.log();
+          if (event.target.classList.contains("list")) {
+            event.target.remove();
+          }
+          event.stopPropagation();
+        });
+
+        // for (const item of lists) {
+        //   console.log(item);
+        //   item.addEventListener("click", (event) => {
+        //     item.style.color = "red";
+        //     event.target.remove();
+        //   });
+        // }
+
+        input.value = "";
+      });
+    </script>
+  </body>
+</html>

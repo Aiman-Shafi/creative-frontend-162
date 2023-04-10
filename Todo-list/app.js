@@ -91,7 +91,6 @@ form.addEventListener("submit", function (event) {
         taskElCompleteBtn.style.backgroundColor = "#004900";
       }
     });
-
     taskElDeleteBtn.addEventListener("click", function (e) {
       taskLists.removeChild(taskEl);
     });

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pin Generator System</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="pin-generator half-width">
+                    <input class="form-control  generatedPin" type="text" >
+                    <button class="generate-btn" onclick="generatePin()">Generate Pin</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="input-section half-width">
+                    <input class="form-control showValue" type="text" >
+                    <div class="numbers">
+                        <div class="calc-body">
+                            <div class="calc-button-row">
+                              <div class="button" onclick="showInput(this.innerText)" >7</div>
+                              <div class="button" onclick="showInput(this.innerText)">8</div>
+                              <div class="button" onclick="showInput(this.innerText)">9</div>
+                            </div>
+                            <div class="calc-row">
+                              <div class="button " onclick="showInput(this.innerText)">4</div>
+                              <div class="button" onclick="showInput(this.innerText)">5</div>
+                              <div class="button " onclick="showInput(this.innerText)">6</div>
+                            </div>
+                            <div class="calc-ow">
+                              <div class="button" onclick="showInput(this.innerText)">1</div>
+                              <div class="button" onclick="showInput(this.innerText)">2</div>
+                              <div class="button" onclick="showInput(this.innerText)">3</div>
+                            </div>
+                            <div class="calc-row">
+                                <div class="button" onclick="removeElement()"> < </div>
+                                <div class="button" onclick="showInput(this.innerText)">0</div>
+                                <div class="button" onclick="clearInput()">C</div>
+                            </div>
+                            <div>
+                                <button type="submit" class="submit-btn" onclick="checkPin()">Submit</button>
+                                <p class="action-left"><span id="tryLeft"> 3 </span> try left</p>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="notify-section">
+            <p class="notify wrong-pin">❌ Pin Didn't Match, Please try again</p>
+            <p class="notify correct-pin">✅ Pin Matched... Secret door is opening for you</p>
+        </div>
+    </div>
+
+    <script>
+        // Task 01 - Notification disable 
+        document.querySelector(".wrong-pin").style.display = "none"
+        document.querySelector(".correct-pin").style.display = "none"
+
+        // Task 02 - Generate Pin (4 digit pin)
+        function generatePin(){
+            const pin = Math.floor( (Math.random() * 9000) + 1000)
+            document.querySelector(".generatedPin").value = pin
+            document.querySelector(".generatedPin").style.textAlign = "center"
+        }
+
+        // Task 03 - (Input number should populate on show value input)
+        function showInput(number){
+            const showValue = document.querySelector(".showValue")
+            showValue.value = showValue.value + number;
+            showValue.style.textAlign = "center"
+        }
+
+        // Task 04 (Clear all Input) using C on calculator
+
+        function clearInput(){
+            document.querySelector(".showValue").value = ""
+        }
+       
+        // Task 05 (Remove element one by one) using "<"
+
+        function removeElement(){
+            const currentValue = document.querySelector(".showValue").value;
+            const newValue = currentValue.substring(0, currentValue.length - 1)
+            document.querySelector(".showValue").value = newValue;
+        }
+
+
+        // Task 06 (Check Pin if the pin is matched or not)
+        function checkPin(){
+            const generatedPin = document.querySelector(".generatedPin").value
+            const newPin = document.querySelector(".showValue").value
+
+            // console.log(generatedPin, newPin)
+            if (generatedPin == newPin){
+                document.querySelector(".correct-pin").style.display = "block"
+                document.querySelector(".wrong-pin").style.display = "none"
+                document.querySelector(".generate-btn").style.backgroundColor = "green"
+                document.querySelector(".submit-btn").style.backgroundColor = "green"
+                document.querySelector(".submit-btn").disabled = true;
+                document.querySelector(".generate-btn").disabled = true;
+            }
+
+            else {
+                document.querySelector(".correct-pin").style.display = "none"
+                document.querySelector(".wrong-pin").style.display = "block"
+                document.querySelector(".generate-btn").style.backgroundColor = "red"
+                document.querySelector(".submit-btn").style.backgroundColor = "red"
+                document.querySelector(".submit-btn").disabled = false;
+                document.querySelector(".generate-btn").disabled = true;
+
+                let tryLeft = document.getElementById("tryLeft").innerText
+                // console.log(typeof tryLeft)
+                let newTryLeft  = parseInt(tryLeft)
+                if (newTryLeft > 0){
+                    newTryLeft = newTryLeft - 1;
+                }
+                document.getElementById("tryLeft").innerText = newTryLeft
+                document.querySelector(".showValue").value = ""
+
+                if (newTryLeft === 0){
+                    document.querySelector(".submit-btn").disabled = true;
+                    document.querySelector(".submit-btn").style.backgroundColor = "black"
+                    document.querySelector(".submit-btn").innerText = "PIN LOCKED!"
+                }
+            }
+        }
+
+        // // 
+        // let text = "Hello world!";
+        // let result = text.substring(3, 7);
+        // console.log(result)
+
+        let number  = 10;
+
+        if (number === 10){
+            console.log("thikase..", true)
+        } else {
+            console.log(false)
+        }
+        
+    </script>
+    
+</body>
+</html>
