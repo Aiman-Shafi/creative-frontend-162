@@ -46,14 +46,14 @@ function findMin(x, y) {
 
 function findMax(x, y) {
   if (x < y) {
-    return y;
+    return y + " max value";
   } else {
-    return x;
+    return x + " max value";
   }
 }
 
-// console.log(findMax(10, 3));
-// console.log(findMin(10, 3));
+console.log(findMax(10, 3));
+console.log(findMin(10, 3));
 
 // Reverse a given string
 
